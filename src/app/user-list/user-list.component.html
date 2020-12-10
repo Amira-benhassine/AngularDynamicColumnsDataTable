@@ -1,0 +1,36 @@
+<section>
+    <mat-table class="matTable" [dataSource]="dataSource">
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="roles">
+        <mat-header-cell *matHeaderCellDef> Roles </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <ng-container *ngFor="let role of row.roles">
+                {{role.roleName}}  
+                <br /> <!-- Use br if you want to display the roles vertically -->
+            </ng-container>
+        </mat-cell>          
+      </ng-container>
+<!--       <ng-container  *ngIf="let test of tests" >
+ -->      <ng-container *ngFor="let test of tests" [matColumnDef]="test.name">
+        <mat-header-cell *matHeaderCellDef> {{test.name}} </mat-header-cell>
+        <mat-cell *matCellDef="let row">  </mat-cell>
+      </ng-container>
+      <ng-container  matColumnDef="taille">
+        <mat-header-cell *matHeaderCellDef> taille </mat-header-cell>
+        <mat-cell *matCellDef="let row"> <input  value="{{row.taille}}" (keypress)="numberOnly($event)" (keyup.enter)="test($event.target.value)" pattern="^[0-9]+(\,[0-9]{1,2})?"type="text"  >  row.taille </mat-cell>
+      </ng-container>
+    <!-- </ng-container>--> 
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+    </mat-table>
+</section>

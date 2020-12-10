@@ -1,0 +1,37 @@
+
+.search {
+  &__form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    &_field {
+      width: 250px;
+      margin: 0 8px 16px 8px;
+    }
+  }
+  &__table {
+    margin: 0 18px 18px 18px;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.custom-scroll.mat-autocomplete-panel {
+
+  &::-webkit-scrollbar {
+      width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+      border-radius: 4px;
+      background-color: green;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: blue;
+  }
+}
